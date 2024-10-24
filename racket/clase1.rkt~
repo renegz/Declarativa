@@ -1,0 +1,4 @@
+#lang racket
+
+; Funcion que se llama media y recibe 3 params, a, b, c
+(define (media a b c) ( / (+ a (+ b c)) 3))
