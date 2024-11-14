@@ -1,0 +1,16 @@
+#lang racket
+(define (calcular_area)
+  (display "Seleccione la figura:\n1. Cuadrado\n2. Rectangulo\n3. Triangulo\n4. Circulo\n")
+  (case (read)
+    ((1) ( (crear_funcion 1) (read)))
+    ((2) ( (crear_funcion 2) (read) (read)))
+    ((3) ( (crear_funcion 3) (read) (read)))
+    ((4) ( (crear_funcion 4) (read)))))
+
+
+(define (crear_funcion modo)
+  (case modo
+    ((1)(lambda (l) (* l l) ))
+    ((2)(lambda (a b) (* a b)))
+    ((3)(lambda (b h) (/ (* b h) 2)))
+    ((4)(lambda (r) (* pi (* r r))) )))

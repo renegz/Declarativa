@@ -1,0 +1,84 @@
+#lang racket
+(define (calcular_area)
+  (display "Seleccione la figura:\n1. Cuadrado\n2. Rectangulo\n3. Triangulo\n4. Circulo\n")
+  (case (read)
+    ((1) ( (crear_funcion 1) (read)))
+    ((2) ( (crear_funcion 2) (read) (read)))
+    ((3) ( (crear_funcion 3) (read) (read)))
+    ((4) ( (crear_funcion 4) (read)))))
+
+
+(define (crear_funcion modo)
+  (case modo
+    ((1)(lambda (l) (* l l) ))
+    ((2)(lambda (a b) (* a b)))
+    ((3)(lambda (b h) (/ (* b h) 2)))
+    ((4)(lambda (r) (* pi (* r r))) )))
+
+(list 4 5 6 7)
+
+(list? (list 1 2 3 4))
+
+(list? 4)
+
+(display null)
+(list? null)
+(null? null)
+(null? 3)
+(length (list 1 2 3 4 5))
+;(length 4)
+(cons 3 (list 1 2 3))
+(cons (list 1 2 3) 3)
+(cons (list 1 2) (list 7 8 9)) ;Cons means construct
+(first (list 1 2 3 4))
+(rest (list 1 2 3 4))
+(append (list 1 2 3 4) (list 9 8 7 6))
+
+;hacer una funcion que muestre el contenido de una lista (asumiendo que no se pudiera
+;colocar la lista como argumento de la funcion display)
+
+(define (show_list L)
+  (display "( ")
+  (show_list_aux L))
+
+(define (show_list_aux L)
+  (cond
+    ((null? L) (display ")"))
+    (else
+     (display (first L))
+     (display " ")
+     (show_list_aux (rest L))
+     )
+))
+
+;Pedir al usuario secuencia de numeros y hacer una lista con ellos
+
+(define (make_list)
+  (display "Ingresa numeros (-1 para terminar)\n")
+  (make_list_aux (read)))
+
+(define (make_list_aux n)
+  (cond
+    ((= n -1))
+    (else
+     (append (list n) (make_list_aux (read))))))
+
+;Invertir lista
+
+(define (pedir_dato S)
+  (display S)
+  (read))
+
+(define (make_list_reverse L)
+  (make_list_reverse_aux L null))
+
+(define (make_list_reverse_aux L NL)
+  (cond
+    ((null? L) NL)
+    (else
+     (make_list_reverse_aux (rest L) (cons (first L) NL))))
+  )
+
+  
+  
+

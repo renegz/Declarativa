@@ -1,0 +1,24 @@
+#lang racket
+
+(define (procesar_seleccion_2 A B oper)
+    (cond
+        ((= oper 1) (+ A B))
+        ((= oper 2) (- A B))
+        ((= oper 3) (* A B))
+        ((= oper 4) (/ A B))
+        (else (display "Mal input"))
+    )
+)
+
+; Otra version
+
+(define (procesar_seleccion_3 A B oper)
+    (case oper
+        ((1)(+ A B))
+        ((2)(- A B))
+        ((3)(* A B))
+        ((4)(/ A B))
+        (else (display "Mal input"))
+    )
+
+)
